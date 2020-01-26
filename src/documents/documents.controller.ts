@@ -1,4 +1,4 @@
-import { Controller, Get, Req } from '@nestjs/common';
+import { Controller, Get, Req, Param } from '@nestjs/common';
 import { Request } from 'express';
 
 import { DocumentsService } from './documents.service';
@@ -13,5 +13,18 @@ export class DocumentsController {
     @Get()
     findAll(@Req() request: Request): Promise<Document[]> {
         return this.documentsService.findAll();
+    }
+
+    /**
+     *Find one document by its ID
+     *
+     * @param {*} id
+     * @returns {string}
+     * @memberof DocumentsController
+     */
+    @Get(':id')
+    findById(@Param('id') id): Promise<Document> {
+        console.log(`findById : #${id} document`);
+        return this.documentsService.findById(id);
     }
 }

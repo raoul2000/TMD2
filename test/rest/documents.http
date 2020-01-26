@@ -3,3 +3,7 @@
 ###
 
 GET {{baseUrl}}/documents
+
+###
+
+GET {{baseUrl}}/documents/1123

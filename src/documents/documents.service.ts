@@ -10,4 +10,8 @@ export class DocumentsService {
     findAll(): Promise<Document[]> {
         return this.daoService.getDao("localfs").findAllDocuments();
     }
+
+    findById(id :string) : Promise<Document> {
+        return this.daoService.getDao().findDocumentById(id);
+    }
 }
